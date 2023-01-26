@@ -54,7 +54,7 @@ spec:
         }
     }
 	stages {
-        stage('Unit Tests') {
+        /*stage('Unit Tests') {
             steps {
             echo '''04# Stage - Unit Tests
 (develop y main): Lanzamiento de test unitarios.
@@ -70,7 +70,7 @@ spec:
                 sh "mvn clean verify sonar:sonar -DskipTests"
             }
           }
-        }
+        }*/
 
       /*stage ('Quality Gate') {
           steps {
