@@ -123,6 +123,7 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
     steps{
     container('sprintboot'){
       echo "soy un contenedor hecho con mi imagen"
+      sh "sleep infinity"
     }
   }
   }
