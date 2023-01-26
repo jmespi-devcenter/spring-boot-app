@@ -122,8 +122,7 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
   stage('Probar mi imagen'){
     steps{
     container('sprintboot'){
-      sh "echo soy un contenedor hecho con mi imagen"
-      sh "sleep 3600"
+      echo "soy un contenedor hecho con mi imagen"
     }
   }
   }
