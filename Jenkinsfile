@@ -44,7 +44,7 @@ spec:
             // container('shell') {
             //     sh 'hostname'
             // }
-            defaultContainer 'imgkaniko'
+            defaultContainer 'maven'
         }
     }
 	stages {
