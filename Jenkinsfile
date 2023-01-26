@@ -93,7 +93,7 @@ spec:
             }
         }
 	
-  stage('Build & Push') {
+  /*stage('Build & Push') {
             steps {
             echo '''08# Stage - Build & Push
 (develop y main): Construcción de la imagen con Kaniko y subida de la misma a repositorio personal en Docker Hub.
@@ -118,12 +118,18 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                     }
                 } 
             }
-        }
+        }*/
   stage('Probar mi imagen'){
     steps{
     container('sprintboot'){
       echo "soy un contenedor hecho con mi imagen"
-      sh "sleep infinity"
+      script{
+        def x=0
+        while(x=100){
+          print x
+          x=x+1
+        }
+      }
     }
   }
   }
