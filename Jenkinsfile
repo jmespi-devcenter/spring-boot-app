@@ -1,20 +1,38 @@
 def versionPom = ""
 pipeline{
 	agent {
-        node {
-            label "nodo-java"
+        kubernetes {
+            // Rather than inline YAML, in a multibranch Pipeline you could use: yamlFile 'jenkins-pod.yaml'
+            // Or, to avoid YAML:
+            // containerTemplate {
+            //     name 'shell'
+            //     image 'ubuntu'
+            //     command 'sleep'
+            //     args 'infinity'
+            // }
+            yaml '''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: shell
+    image: ubuntu
+    command:
+    - sleep
+    args:
+    - infinity
+'''
+            // Can also wrap individual steps:
+            // container('shell') {
+            //     sh 'hostname'
+            // }
+            defaultContainer 'shell'
         }
     }
-
-    environment {
-        registryCredential='docker-hub-credentials'
-        registryBackend = 'franaznarteralco/backend-demo'
-    }
-
 	stages {
         stage('SonarQube analysis') {
           steps {
-            withSonarQubeEnv(credentialsId: "sonarqube-credentials", installationName: "sonarqube-server"){
+            withSonarQubeEnv(credentialsId: "sonarid", installationName: "SonarQube"){
                 sh "mvn clean verify sonar:sonar -DskipTests"
             }
           }
@@ -24,7 +42,7 @@ pipeline{
           steps {
             timeout(time: 10, unit: "MINUTES") {
               script {
-                def qg = waitForQualityGate(webhookSecretId: 'sonarqube-credentials')
+                def qg = waitForQualityGate(webhookSecretId: 'sonarid')
                 if (qg.status != 'OK') {
                    error "Pipeline aborted due to quality gate failure: ${qg.status}"
                 }
