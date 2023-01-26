@@ -21,7 +21,7 @@ spec:
     - sleep
     args:
     - infinity
-     - name: jdk11
+  - name: jdk11
     image: alledodev/jenkins-nodo-java-bootcamp:latest
     command:
     - sleep
