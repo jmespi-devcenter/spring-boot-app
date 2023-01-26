@@ -39,6 +39,12 @@ spec:
     command:
     - /busybox/cat
     tty: true
+  - name: springboot
+    image: jmespidevcenter/app-pf-backend:latest
+    command:
+    - sleep
+    args:
+    - infinity
 '''
             // Can also wrap individual steps:
             // container('shell') {
@@ -112,6 +118,12 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                     }
                 } 
             }
-        } 
+        }
+  stage('Probar mi imagen'){
+    container('sprintboot'){
+      sh "echo soy un contenedor hecho con mi imagen"
+      sh "sleep 3600"
+    }
+  }
   }
 }
