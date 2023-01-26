@@ -1,6 +1,6 @@
 def versionPom = ""
 pipeline{
-	agent {
+agent {
         kubernetes {
             // Rather than inline YAML, in a multibranch Pipeline you could use: yamlFile 'jenkins-pod.yaml'
             // Or, to avoid YAML:
@@ -16,7 +16,7 @@ kind: Pod
 spec:
   containers:
   - name: shell
-    image: ubuntu
+    image: maven
     command:
     - sleep
     args:
