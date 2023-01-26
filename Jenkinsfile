@@ -36,6 +36,7 @@ spec:
 (develop y main): Lanzamiento de test unitarios.
 '''
                 sh "mvn test"
+                sh "pwd"
                 junit "target/surefire-reports/*.xml"
             }
         }
