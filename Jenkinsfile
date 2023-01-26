@@ -21,12 +21,30 @@ spec:
     - sleep
     args:
     - infinity
+     - name: jdk11
+    image: alledodev/jenkins-nodo-java-bootcamp:latest
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: nodejs
+    image: alledodev/jenkins-nodo-nodejs-bootcamp:latest
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: imgkaniko
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
+    command:
+    - /busybox/cat
+    tty: true
 '''
             // Can also wrap individual steps:
             // container('shell') {
             //     sh 'hostname'
             // }
-            defaultContainer 'shell'
+            defaultContainer 'imgkaniko'
         }
     }
 	stages {
@@ -60,7 +78,14 @@ spec:
             }
           }
         }*/
-
+  stage('Package') {
+            steps {
+            echo '''07# Stage - Package
+(develop y main): Generación del artefacto .jar (SNAPSHOT)
+'''
+                sh 'mvn package -DskipTests'
+            }
+        }
 	
   stage('Build & Push') {
             steps {
