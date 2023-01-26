@@ -61,7 +61,7 @@ spec:
           }
         }*/
 
-	}
+	
   stage('Build & Push') {
             steps {
             echo '''08# Stage - Build & Push
@@ -87,6 +87,6 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                     }
                 } 
             }
-        }
-
+        } 
+  }
 }
