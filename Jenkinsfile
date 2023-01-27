@@ -134,7 +134,7 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
             environment {
 		        NEXUS_VERSION = "nexus3"
                 NEXUS_PROTOCOL = "http"
-                NEXUS_URL = "http://192.168.88.251:8081/repository/upskilling/"
+                NEXUS_URL = "http://192.168.88.251:8081"
                 NEXUS_REPOSITORY = "upskilling/"
                 NEXUS_CREDENTIAL_ID = "idnexus"
             }
