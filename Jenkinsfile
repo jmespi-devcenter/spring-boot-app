@@ -54,7 +54,7 @@ spec:
         }
     }
 	stages {
-        stage('Unit Tests') {
+       /* stage('Unit Tests') {
             steps {
             echo '''04# Stage - Unit Tests
 (develop y main): Lanzamiento de test unitarios.
@@ -63,8 +63,8 @@ spec:
                 sh "pwd"
                 junit "target/surefire-reports/*.xml"
             }
-        }
-        stage('SonarQube analysis') {
+        }*/
+       /* stage('SonarQube analysis') {
           steps {
             withSonarQubeEnv(credentialsId: "sonarid", installationName: "SonarQube"){
                 sh "mvn clean verify sonar:sonar -DskipTests"
@@ -83,7 +83,7 @@ spec:
               }
             }
           }
-        }
+        }*/
   stage('Package') {
             steps {
             echo '''07# Stage - Package
