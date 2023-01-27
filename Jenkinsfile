@@ -119,19 +119,14 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                 } 
             }
         }*/
- /*stage('Probar mi imagen'){
+ stage('Probar mi imagen'){
     steps{
     container('sprintboot'){
       echo "soy un contenedor hecho con mi imagen"
-      script{
-        def x=0
-        while(x =< 100){
-          print x
-          x=x+1
+      sh "sleep infinity"        
         }
       }
     }
   }
-  }*/
   }
-}
+  
