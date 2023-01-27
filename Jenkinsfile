@@ -59,7 +59,7 @@ spec:
             echo '''04# Stage - Unit Tests
 (develop y main): Lanzamiento de test unitarios.
 '''
-echo "pipeline automatico"
+echo "pipeline auto"
                // sh "mvn test"
                // sh "pwd"
                // junit "target/surefire-reports/*.xml"
