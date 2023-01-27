@@ -54,16 +54,17 @@ spec:
         }
     }
 	stages {
-       /* stage('Unit Tests') {
+       stage('Unit Tests') {
             steps {
             echo '''04# Stage - Unit Tests
 (develop y main): Lanzamiento de test unitarios.
 '''
-                sh "mvn test"
-                sh "pwd"
-                junit "target/surefire-reports/*.xml"
+echo "pipeline automatico"
+               // sh "mvn test"
+               // sh "pwd"
+               // junit "target/surefire-reports/*.xml"
             }
-        }*/
+        }
        /* stage('SonarQube analysis') {
           steps {
             withSonarQubeEnv(credentialsId: "sonarid", installationName: "SonarQube"){
@@ -83,7 +84,7 @@ spec:
               }
             }
           }
-        }*/
+        }
   stage('Package') {
             steps {
             echo '''07# Stage - Package
@@ -91,7 +92,7 @@ spec:
 '''
                 sh 'mvn package -DskipTests'
             }
-        }
+        }*/
 	
   /*stage('Build & Push') {
             steps {
