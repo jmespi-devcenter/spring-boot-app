@@ -121,7 +121,7 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
         }*/
  stage('Probar mi imagen'){
     steps{
-    container('sprintboot'){
+    container('springboot'){
       script{
       echo "soy un contenedor hecho con mi imagen"
       sh 'sleep infinity'
