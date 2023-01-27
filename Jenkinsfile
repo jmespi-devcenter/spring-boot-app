@@ -54,7 +54,7 @@ spec:
         }
     }
 	stages {
-        /*stage('Unit Tests') {
+        stage('Unit Tests') {
             steps {
             echo '''04# Stage - Unit Tests
 (develop y main): Lanzamiento de test unitarios.
@@ -70,9 +70,9 @@ spec:
                 sh "mvn clean verify sonar:sonar -DskipTests"
             }
           }
-        }*/
+        }
 
-      /*stage ('Quality Gate') {
+      stage ('Quality Gate') {
           steps {
             timeout(time: 10, unit: "MINUTES") {
               script {
@@ -83,7 +83,7 @@ spec:
               }
             }
           }
-        }*/
+        }
   stage('Package') {
             steps {
             echo '''07# Stage - Package
@@ -119,18 +119,18 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                 } 
             }
         }*/
-  stage('Probar mi imagen'){
+ /* stage('Probar mi imagen'){
     steps{
     container('sprintboot'){
       echo "soy un contenedor hecho con mi imagen"
       script{
         def x=0
-        while(x=100){
+        while(x =< 100){
           print x
           x=x+1
         }
       }
-    }
+    }*/
   }
   }
   }
