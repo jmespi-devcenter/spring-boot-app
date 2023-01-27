@@ -119,7 +119,7 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
                 } 
             }
         }*/
- /* stage('Probar mi imagen'){
+ /*stage('Probar mi imagen'){
     steps{
     container('sprintboot'){
       echo "soy un contenedor hecho con mi imagen"
@@ -130,8 +130,8 @@ Para el etiquetado de la imagen se utilizará la versión del pom.xml
           x=x+1
         }
       }
-    }*/
+    }
   }
-  }
+  }*/
   }
 }
